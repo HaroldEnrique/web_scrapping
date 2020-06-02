@@ -1,0 +1,29 @@
+attrs:
+DISTRITO,TIENDA,CATEGORIA,SUBCATEOGORIA,TOP(1,0),
+NOMBRE, PRECIO, URL_IMAGEN, DESCRIPCION
+
+1. recolectar nombres de provincias
+2. Por provincia get categorias de tiendas y tiendas
+	- url - payload : locality, country
+	- url : https://cornershopapp.com/api/v2/stores?locality=Jesus+Maria&country=PE
+	- json recibido>por categoria -> {cat,cat,cat}
+	- categoria(Featured = top) y stores [{name:'',stores:''}]
+	- stores:[{id:'',name:'',self_picking,self_delivery,*closest_branch*}]
+	-*closest_branch {id,lat,lng,name,store_name,address,city,has_same_prices, delivery_slots=[]}
+3. Get departamentos por branches(tienda mas cercana)
+	- url-payload : id_branch,locality,country
+	- url:https://cornershopapp.com/api/v1/branches/3071?with_suspended_slots&locality=Jesus+Maria&country=PE
+	- json recibido -> {branch,departments,recent_products}
+	- por departamento : {id,name,top_products,aisles}
+	- guardar id_departamento
+4. Get aisles(subcategorias)
+	- url-payload : id_branch,id_departamento
+	- url:https://cornershopapp.com/api/v1/branches/2896/departments/C_538
+	- json recibido -> {id,name,img_url,top_products,aisles}
+	- (subcat)guardar por cada aisles : {id,name,num_products,top_products}
+5. Get all products por categoria
+	- payload : id_branch,id_aisle
+	- url:https://cornershopapp.com/api/v1/branches/2896/aisles/C_134/products
+	- json_recibido -> [{producto},{producto},{producto},etc]
+	- * el json_recibido esta ordenado (los 10 primeros son prod. top de aisles)
+	- por producto {id,brand,buy_unit,currency,price,pricing{price_per_unit{unit,amount,currency}},nutritional_info,name,description,img_url}

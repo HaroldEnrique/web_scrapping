@@ -1,0 +1,10 @@
+- Convertir todo a mayuscula (nombre_comercial, razon_social, nombre_banco)
+- quitar espacios al inicio y al final de textos (nombre_comercial, razon_social)
+- Tipo_rubro(1 = P, 0 = B, None = B)
+- colocar atributo tipo_tienda(B,P) -> tipo_rubro_str
+- quitar - al inicio de nombre comercial (nombre_comercial)
+- mostrar todos los atributos
+- quitar "" en todo (nombre_comercial)
+- en espacios vacios colocar ""
+
+

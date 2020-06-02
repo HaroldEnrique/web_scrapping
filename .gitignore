@@ -1,0 +1,22 @@
+# Python pycache:
+__pycache__/
+
+# iPython
+.ipynb_checkpoints/
+
+# env
+env/
+
+# vs code
+.vscode/
+
+# csv
+*.csv
+
+# rar
+*.rar
+
+# images
+*.png
+*.jpeg
+*.jpg
